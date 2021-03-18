@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "IpayPayment.h"
+#import <WebKit/WebKit.h>
 
 @protocol PaymentResultDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 - (void)requeryFailed:(NSString *)refNo withMerchantCode:(NSString *)merchantCode withAmount:(NSString *)amount withErrDesc:(NSString *)errDesc;
 @end
 
-@interface Ipay : UIViewController <UIWebViewDelegate, NSURLConnectionDelegate, UIScrollViewDelegate> {
+@interface Ipay : UIViewController <WKNavigationDelegate, NSURLConnectionDelegate, UIScrollViewDelegate> {
     __weak id <PaymentResultDelegate> delegate;
 }
 @property (nonatomic,weak) id <PaymentResultDelegate> delegate;
